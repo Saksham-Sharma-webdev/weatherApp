@@ -7,24 +7,19 @@ const wicon = document.querySelector(".weather-icon");
 let audioElement = new Audio();
 audioElement.loop = true;
 
-
-
 wicon.addEventListener("click", function () {
   if (!audioElement.src) {
     console.log("No audio loaded yet");
     return;
   }
-  console.log(audioElement.src)
+  console.log(audioElement.src);
 
   if (audioElement.paused) {
-    audioElement.play().catch(err => console.log(err));
+    audioElement.play().catch((err) => console.log(err));
   } else {
     audioElement.pause();
   }
 });
-
-
-
 
 async function updateWeather(place) {
   let data;
@@ -72,11 +67,11 @@ async function updateWeather(place) {
   } else if (wid > 800 && wid < 900) {
     icon = "clouds";
   }
-  wicon.src = `./images/${icon}.png`;
+  wicon.src = `./assets/images/${icon}.png`;
 
-  audioElement.src = `./music/${icon}.mp3`;
-  console.log(audioElement.src)
-  audioElement.load()
+  audioElement.src = `./assets/music/${icon}.mp3`;
+  console.log(audioElement.src);
+  audioElement.load();
 }
 
 searchBtn.addEventListener("click", function () {
